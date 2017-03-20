@@ -1,6 +1,4 @@
-/*
-    登录验证案例
-*/
+//登陆
 const express = require('express');
 const bodyParser = require('body-parser');
 const db = require('./db.js');
@@ -14,7 +12,7 @@ app.post('/login',(req,res) => {
     let sql = 'select count(*) as cc from user where username=? and password=?';
     let data = [param.username,param.password];
     db.base(sql,data,(ret) => {
-        console.log(ret);
+        //console.log(ret);
         if(ret[0].cc == 1){
             res.send('登录成功');
         }else{
